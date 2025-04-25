@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base 网络 RPC 节点测试</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Base 网络 RPC 节点测试</h1>
+        <p class="description">
+            此工具将使用您的网络连接测试 Base 网络的各个 RPC 节点的可用性和响应时间。
+            测试结果将帮助开发者了解不同地区用户访问 Base 网络的情况。
+        </p>
+        
+        <div class="client-info">
+            <h2>您的网络信息</h2>
+            <div id="client-details">加载中...</div>
+        </div>
+        
+        <div class="test-controls">
+            <button id="test-all-btn" class="btn primary">测试所有节点</button>
+            <button id="clear-results-btn" class="btn secondary">清除结果</button>
+        </div>
+        
+        <div class="results-container">
+            <h2>测试结果</h2>
+            <div class="summary" id="summary">
+                <div class="summary-item">
+                    <span class="label">已测试:</span>
+                    <span class="value" id="tested-count">0</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">成功:</span>
+                    <span class="value" id="success-count">0</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">失败:</span>
+                    <span class="value" id="failed-count">0</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">最快节点:</span>
+                    <span class="value" id="fastest-node">-</span>
+                </div>
+            </div>
+            
+            <div class="results-table-container">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>状态</th>
+                            <th>RPC 节点</th>
+                            <th>响应时间 (ms)</th>
+                            <th>区块高度</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body">
+                        <!-- 结果将通过 JavaScript 动态添加 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="export-section">
+            <button id="export-btn" class="btn secondary">导出结果 (CSV)</button>
+            <button id="copy-fastest-btn" class="btn secondary">复制最快节点 URL</button>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 Base 网络 RPC 节点测试工具 | <a href="https://github.com/your-username/base-rpc-tester" target="_blank">GitHub</a></p>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
